@@ -24,7 +24,7 @@ A beautiful Python application that generates colorful ASCII art from text and d
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ascii-art-generator.git
+   git clone https://github.com/sudipnext/ascii-art-generator.git
    cd ascii-art-generator
    ```
 
@@ -40,6 +40,8 @@ A beautiful Python application that generates colorful ASCII art from text and d
    ```
 
 ## 🎯 Usage
+You can integrate the Python script into your terminal configuration for quick access. Update your `.bashrc` or `.zshrc` file to run the script automatically or create an alias for easier usage.
+
 
 ### Offline Mode (Recommended for most users)
 
@@ -75,15 +77,45 @@ If you have database credentials, you can use the live database connection:
    python main.py
    ```
 
-### Extract Quotes Database
+## 📖 Examples
 
-To create your own quotes dump from the database:
-
+### Example 1: Run Automatically on Terminal Startup
+Add the following line to your `.bashrc` or `.zshrc` file:
 ```bash
-python extract_quotes_dump.py
+python /path/to/ascii-art-generator/main_offline.py "Welcome to your terminal!" "block"
+```
+This will display ASCII art with a custom message every time you open a new terminal window or tab.
+
+### Example 2: Create an Alias for Quick Access
+Add an alias to your `.bashrc` or `.zshrc` file:
+```bash
+alias asciiart='python /path/to/ascii-art-generator/main_offline.py'
+```
+Reload your terminal configuration:
+```bash
+source ~/.bashrc  # For bash
+source ~/.zshrc   # For zsh
+```
+Now, you can run the script with:
+```bash
+asciiart "Hello World" "slant"
 ```
 
-This will create a `quotes_dump.json` file containing all quotes for offline use.
+### Example 3: Customize Fonts and Messages
+Use the alias with different fonts and messages:
+```bash
+asciiart "Stay Motivated!" "doom"
+asciiart "Code Like a Pro" "digital"
+```
+
+### Example 4: Automatically Run on Terminal Startup
+To display ASCII art and a motivational quote every time you open a terminal, add the following line to your `.bashrc` or `.zshrc` file:
+```bash
+python /path/to/ascii-art-generator/main_offline.py "Welcome Back!" "big"
+```
+This ensures the script runs automatically whenever a new terminal session starts.
+
+These examples make it easy to display ASCII art and inspirational quotes directly from your terminal.
 
 ## 🎨 Available Fonts
 
@@ -111,7 +143,6 @@ python main_offline.py "AWESOME" "block"
 ascii-art-generator/
 ├── main.py                 # Database-connected version
 ├── main_offline.py         # Offline version (recommended)
-├── extract_quotes_dump.py  # Database extraction utility
 ├── quotes_dump.json        # Pre-generated quotes database
 ├── requirements.txt        # Python dependencies
 ├── .env                    # Environment variables (create this)
@@ -229,8 +260,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Support
 
-- 🐛 **Bug reports**: [Open an issue](https://github.com/yourusername/ascii-art-generator/issues)
-- 💡 **Feature requests**: [Start a discussion](https://github.com/yourusername/ascii-art-generator/discussions)
+- 🐛 **Bug reports**: [Open an issue](https://github.com/sudipnext/ascii-art-generator/issues)
+- 💡 **Feature requests**: [Start a discussion](https://github.com/sudipnext/ascii-art-generator/discussions)
 - ❓ **Questions**: Check existing issues or start a new discussion
 
 ---
