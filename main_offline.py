@@ -12,6 +12,7 @@ from rich.text import Text
 from rich.panel import Panel
 from rich.align import Align
 import os
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 def generate_ascii_art(text, font="big"):
     """Generate ASCII art from text using pyfiglet"""
@@ -38,6 +39,7 @@ def print_gradient_ascii(ascii_art, start_color=(255, 105, 180), end_color=(0, 2
                 rich_text.append(char)  # Keep space unstyled
         console.print(rich_text)
 
+
 def load_quotes_from_file(quotes_file="quotes_dump.json"):
     """Load quotes from local JSON file"""
     try:
@@ -45,8 +47,8 @@ def load_quotes_from_file(quotes_file="quotes_dump.json"):
             print(f"❌ Quotes file '{quotes_file}' not found!")
             print("💡 Run 'python extract_quotes_dump.py' to create the quotes file.")
             return None
-        
-        with open(quotes_file, 'r', encoding='utf-8') as f:
+
+        with open(os.path.join(base_dir, quotes_file), 'r', encoding='utf-8') as f:
             data = json.load(f)
         
         return data['quotes']
