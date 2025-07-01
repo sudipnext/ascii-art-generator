@@ -1,5 +1,5 @@
 # 🎨 ASCII Art Generator with Inspirational Quotes
-
+![alt text](image.png)
 A beautiful Python application that generates colorful ASCII art from text and displays random inspirational quotes. Perfect for terminal enthusiasts, motivational displays, or just adding some fun to your command line!
 
 ![ASCII Art Example](https://img.shields.io/badge/ASCII-Art-brightgreen) ![Python](https://img.shields.io/badge/Python-3.7+-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
