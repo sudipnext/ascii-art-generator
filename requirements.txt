@@ -1,0 +1,4 @@
+pyfiglet
+rich
+psycopg2-binary
+python-dotenv
