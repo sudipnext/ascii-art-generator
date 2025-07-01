@@ -43,7 +43,7 @@ def print_gradient_ascii(ascii_art, start_color=(255, 105, 180), end_color=(0, 2
 def load_quotes_from_file(quotes_file="quotes_dump.json"):
     """Load quotes from local JSON file"""
     try:
-        if not os.path.exists(quotes_file):
+        if not os.path.exists(os.path.join(base_dir, quotes_file)):
             print(f"❌ Quotes file '{quotes_file}' not found!")
             print("💡 Run 'python extract_quotes_dump.py' to create the quotes file.")
             return None
@@ -58,9 +58,6 @@ def load_quotes_from_file(quotes_file="quotes_dump.json"):
 
 def get_random_quote(quotes_data=None):
     """Get a random quote from the loaded quotes data"""
-    if quotes_data is None:
-        quotes_data = load_quotes_from_file()
-    
     if not quotes_data:
         return None
     
@@ -109,14 +106,14 @@ def display_quote(quote_data):
     console.print("\n")
     console.print(quote_panel)
 
-def main(name="sudipnext", font="big"):
+def main(name="sudipnext", font="big", quotes_file="quotes_dump.json"):
     """Main function to generate ASCII art and display quote"""
     # Generate ASCII art for the name
     ascii_art = generate_ascii_art(name, font=font)
     print_gradient_ascii(ascii_art)
     
     # Load quotes and display a random one
-    quotes_data = load_quotes_from_file()
+    quotes_data = load_quotes_from_file(quotes_file)
     if quotes_data:
         quote_data = get_random_quote(quotes_data)
         display_quote(quote_data)
@@ -126,8 +123,9 @@ def main(name="sudipnext", font="big"):
 if __name__ == "__main__":
     import sys
     
-    # Allow custom name and font from command line
+    # Allow custom name, font, and quotes file from command line
     name = sys.argv[1] if len(sys.argv) > 1 else "sudipnext"
     font = sys.argv[2] if len(sys.argv) > 2 else "big"
-    
-    main(name, font)
+    quotes_dump = sys.argv[3] if len(sys.argv) > 3 else "quotes_dump.json"
+
+    main(name, font, quotes_dump)
